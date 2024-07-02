@@ -1,4 +1,4 @@
-name: Insecure Workflow
+name: Insecure Approved Action Workflow
 
 on: [push]
 
