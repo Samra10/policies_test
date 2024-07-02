@@ -1,17 +1,22 @@
-name: Insecure Workflow
+name: Invalid Trigger Workflow
 
 on:
   push:
     branches:
-      - main
+      - feature-branch
+  pull_request:
+    branches:
+      - feature-branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up environment
-        run: echo "API_KEY=hardcoded_api_key" >> $GITHUB_ENV
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
